@@ -1,0 +1,11 @@
+.title
+  %h4
+    %i.fa.fa-chevron-circle-left.fa-fw
+    - if for_route?
+      = link_to "Route #{current_route.path}", admin_route_url(current_route)
+    - else
+      = link_to 'Settings', admin_settings_url
+  %h1
+    %i.fa.fa-gear.fa-fw
+    New setting
+= render partial: 'form', locals: {item: current_setting}

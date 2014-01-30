@@ -1,0 +1,20 @@
+= content_for :head do
+  = javascript_include_tag 'admin/ckeditor_init', 'data-turbolinks-track' => :true
+- if item.new_record?
+  - url = admin_resource_items_url resource
+- else
+  - url = admin_resource_item_url resource, item
+= simple_form_for(item, as: :item, url: url, html: {class: :full_form}) do |f|
+  = meta_errors_for item
+  = f.input :name
+  .row
+    .columns.large-2.small-6
+      = f.input :published, as: :boolean
+    .columns.large-10.small-6
+      #publish_date_picker{style: item.published? ? '' : 'display:none' }
+        = f.input :published_at, as: :date, label: false
+  = f.fields_for :values do |values_form|
+    - resource.meta_fields.each do |meta_field|
+      = resource_input_for values_form, item, meta_field
+  = f.button :submit, class: [:small, :right, :success]
+  .clear

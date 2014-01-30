@@ -1,0 +1,21 @@
+.title
+  %h1
+    %i.fa.fa-group.fa-fw
+    Contributors
+%table.responsive.full
+  %thead
+    %tr
+      %td Name
+      %td Email
+  %tbody
+    - current_site.contributors.asc(:email).each do |c|
+      %tr
+        %td
+          = link_to admin_contributor_url(c) do
+            %i.fa.fa-user.fa-fw
+            = c.name
+            
+        %td
+          %a{href: "mailto:#{c.email}"}
+            %i.fa.fa-envelope.fa-fw
+            = c.email

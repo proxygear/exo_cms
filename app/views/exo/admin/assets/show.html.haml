@@ -1,0 +1,14 @@
+.title
+  %h4
+    %i.fa.fa-chevron-circle-left.fa-fw
+    = link_to 'Assets', admin_assets_url
+  %h1
+    .right
+      %small
+        = link_to admin_asset_url(current_asset), 'data-method' => 'delete', confirm: 'Are you sure?', class: 'alert' do
+          %i.fa.fa-trash-o.fa-fw
+          Remove
+    %i.fa.fa-picture-o.fa-fw
+    = current_asset.name
+.full_blocks{style: 'text-align: center'}
+  = image_tag current_asset.content.thumb.url

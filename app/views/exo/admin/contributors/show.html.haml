@@ -1,0 +1,26 @@
+.title
+  %h4
+    %i.fa.fa-chevron-circle-left.fa-fw
+    = link_to 'Contributors', admin_contributors_url
+  %h1
+    %i.fa.fa-group.fa-fw
+    = contributor.name
+%table.responsive.full
+  %thead
+    %tr
+      %td Info
+      %td Value
+  %tbody
+    %tr
+      %td
+        Email
+      %td
+        %a{href: "mailto:#{contributor.email}"}
+          %i.fa.fa-envelope.fa-fw
+          = contributor.email
+    %tr
+      %td Created at
+      %td= contributor.created_at
+    %tr
+      %td Updated at
+      %td= contributor.updated_at

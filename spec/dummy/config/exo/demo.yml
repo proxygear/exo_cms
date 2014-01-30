@@ -1,0 +1,13 @@
+---
+theme: 'demo'
+main_host: 'localhost'
+hosts: 
+contributors: 
+resources:
+routes: 
+  home:
+    path: /home
+    view: /home
+  post:
+    path: /post/:post_slug_id
+    view: /posts/show

@@ -1,0 +1,11 @@
+- if asset.new_record?
+  - url = admin_assets_url
+- else
+  - url = admin_asset_url(asset)
+= simple_form_for(asset, as: :asset, url: url, html: {class: :full_form}) do |f|
+  = f.input :name
+  = f.input :content, as: :file
+  = f.button :submit, class: [:right, :success, :small] do
+    %i.fa.fa-check
+    Save
+  .clear

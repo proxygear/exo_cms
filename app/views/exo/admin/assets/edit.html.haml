@@ -1,0 +1,7 @@
+.title
+  %h1
+    %i.fa.fa-picture-o
+    Edit
+    = current_asset.name
+    %small Asset
+= render partial: 'form', locals: {asset: current_asset}

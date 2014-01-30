@@ -1,0 +1,15 @@
+#content
+  transition: margin-left 0.3s
+#sidenav
+  transition: left 0.3s
+@media only screen and (max-width: 40em)
+  #content
+    margin-left: 0px
+    z-index: 1
+  #sidenav
+    left: -$side_width
+    z-index: 2
+  #wrapper
+    &.sidenav-visible
+      #sidenav
+        left: 0px

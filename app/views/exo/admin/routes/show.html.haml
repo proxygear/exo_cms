@@ -1,0 +1,39 @@
+.title
+  %h1
+    - if current_route.kind_of?(Sierra::Route::Page)
+      .right
+        %small
+          = link_to edit_admin_route_url(current_route) do
+            %i.fa.fa-pencil.fa-fw
+            Edit
+    %i.fa.fa-road.fa-fw
+    = current_route.path
+  %p
+    Below, you will be able to add settings to pages to provide for instance: title, keywords, etc...
+%table.full.responsiv
+  %thead
+    %tr
+      %td Name
+      %td Value
+      %td
+        = link_to new_admin_route_setting_url(current_route) do
+          %i.fa.fa-plus.fa-fw
+          Add setting
+  %tbody
+    - current_route.settings.each do |s|
+      %tr
+        %td
+          = link_to edit_admin_route_setting_url(current_route, s) do
+            %i.fa.fa-pencil.fa-fw
+            = s.name
+        %td
+          - if s.value
+            = s.value
+          - else
+            %i.fa.fa-circle.fa-fw
+        %td
+          - if s.system
+            %i.fa.fa-lock.fa-fw
+          - else
+            %i.fa.fa-unlock.secondary.fa-fw
+          = s.slug_id

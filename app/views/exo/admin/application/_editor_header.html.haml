@@ -1,0 +1,12 @@
+%header#editor_header.top-bar{'data-topbar' => ''}
+  %section.top-bar-section
+    %ul.left
+      %li.has-form
+        = link_to admin_route_url(current_route), class: "button" do
+          %i.fa.fa-times-circle-o
+          Cancel
+    %ul.right
+      %li.has-form
+        = link_to '#', class: 'success button', onclick: 'saveAllCkeditables(event)' do
+          %i.fa.fa-check
+          Save

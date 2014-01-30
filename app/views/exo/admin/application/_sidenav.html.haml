@@ -1,0 +1,48 @@
+%ul.side-nav
+  %li.hide-for-medium-up
+    = link_to admin_root_url do
+      %i.fa.fa-home
+      = current_site.slug_id.capitalize
+  %li
+    %h4 Resources
+  - current_site.resources.asc(:name).each do |resource|
+    %li
+      .right
+        -#.label.secondary.radius= resource.items.count
+        -#= link_to new_admin_resource_item_url(resource) do
+        -#  %i.fa.fa-plus-square.fa-fw
+      = link_to admin_resource_url(resource) do
+        %i.fa.fa-archive.fa-fw
+        = resource.name
+  %li
+    %h4 Routes
+  - current_site.routes.asc(:path).each do |route|
+    %li
+      = link_to admin_route_url(route) do
+        %i.fa.fa-road.fa-fw
+        = route.path
+  %li
+    %h4 Site
+  %li
+    = link_to admin_assets_url do
+      %i.fa.fa-picture-o.fa-fw
+      Assets
+  %li
+    = link_to admin_settings_url do
+      %i.fa.fa-cog.fa-fw
+      Settings
+  %li
+    = link_to admin_contributors_url do
+      %i.fa.fa-group.fa-fw
+      Contributors
+  %li.hide-for-medium-up
+    %h4
+      Session
+  %li.hide-for-medium-up
+    = link_to admin_contributor_url(current_contributor) do
+      = image_tag current_contributor.avatar_url, class: :avatar, style: 'height: 18px'
+      = current_contributor.name
+  %li.hide-for-medium-up
+    = link_to destroy_contributor_session_url, 'data-method' => 'delete' do
+      %i.fa.fa-sign-out.fa-fw
+      Logout

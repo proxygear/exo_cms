@@ -1,0 +1,13 @@
+%h1
+  %i.fa.fa-folder-open
+  Resources
+%hr
+%table.full.responsiv
+  %tbody
+    - current_site.resources.asc(:name).each do |resource|
+      %tr
+        %td
+          = link_to admin_resource_url(resource) do
+            %i.fa.fa-circle
+            = resource.name
+        %td= resource.items.count

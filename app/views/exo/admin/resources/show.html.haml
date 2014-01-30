@@ -1,0 +1,36 @@
+.title
+  %h1
+    %i.fa.fa-archive.fa-fw
+    = current_resource.name.capitalize
+%table.responsive.full
+  %thead
+    %tr
+      %td
+        Name
+      %td
+        Published
+      %td
+        = link_to new_admin_resource_item_url(current_resource) do
+          %i.fa.fa-plus.fa-fw
+          Add item
+  %tbody
+    - current_resource.items.asc(:created_at).each do |item|
+      %tr
+        %td
+          = link_to admin_resource_item_url(current_resource, item) do
+            = item.name
+            - if item.name.blank?
+              = "-"
+        %td
+          - if !item.published_at
+            %i.fa.fa-circle-o.fa-fw
+          - else
+            - if item.published?
+              %i.fa.fa-check-circle-o.fa-fw
+            - else
+              %i.fa.fa-clock-o.fa-fw
+            = item.published_at
+        %td
+          = link_to admin_resource_item_url(current_resource, item), 'data-method' => 'delete', confirm: 'Are you sure?', class: 'alert' do
+            %i.fa.fa-trash-o.fa-fw
+            Delete

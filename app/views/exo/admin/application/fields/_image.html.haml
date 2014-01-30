@@ -1,0 +1,3 @@
+= form.input field.slug_id, as: :file, required: false
+- if value && value.content_size > 0
+  .item_value= image_tag value.content.thumb.url

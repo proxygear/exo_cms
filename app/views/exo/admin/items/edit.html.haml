@@ -1,0 +1,16 @@
+.title
+  %h4
+    %i.fa.fa-chevron-circle-left.fa-fw
+    = link_to current_resource.name.capitalize, admin_resource_url(current_resource)
+    = '/'
+    = link_to admin_resource_item_url(current_resource, current_item) do
+      = current_item.name
+  %h1
+    .right
+      %small
+        = link_to admin_resource_item_url(current_resource, current_item), 'data-method' => 'delete', confirm: 'Are you sure?', class: 'alert' do
+          %i.fa.fa-trash-o.fa-fw
+          Remove
+    %i.fa.fa-archive.fa-fw
+    Edit
+= render partial: 'form', locals: {item: current_item, resource: current_resource}

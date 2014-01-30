@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title= @page_name || tick.site.slug_id
+    %meta{'http-equiv' => "content-language", :content => 'fr'}
+    %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=ISO-8859-1"}
+    = stylesheet_link_tag    tick.site.nest_path(:application), media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag tick.site.nest_path(:application), "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    = yield

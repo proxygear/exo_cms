@@ -1,0 +1,8 @@
+.title
+  %h4
+    %i.fa.fa-chevron-circle-left.fa-fw
+    = link_to current_resource.name.capitalize, admin_resource_url(current_resource)
+  %h1
+    %i.fa.fa-archive.fa-fw
+    New #{current_resource.name}
+= render partial: 'form', locals: {item: current_item, resource: current_resource}

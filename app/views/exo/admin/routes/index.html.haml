@@ -1,0 +1,22 @@
+%h1
+  %i.fa.fa-sitemap
+  Sitemap
+%table.responsive.full
+  %tbody
+    - current_site.routes.asc(:path).each do |route|
+      %tr
+        - if route.redirection?
+          %td
+            %i.fa.fa-chain
+            = route.path
+          %td
+            %i.fa.fa-angle-double-right
+            = route.to_path
+        - else
+          %td
+            = link_to admin_route_url(route) do
+              %i.fa.fa-file
+              = route.path
+          %td
+            %i.fa.fa-code
+            = route.view_path

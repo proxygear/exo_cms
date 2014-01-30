@@ -1,0 +1,44 @@
+.title
+  %h4
+    %i.fa.fa-chevron-circle-left.fa-fw
+    = link_to current_resource.name.capitalize, admin_resource_url(current_resource)
+  %h1
+    .right
+      %small
+        = link_to edit_admin_resource_item_url(current_resource, current_item) do
+          %i.fa.fa-pencil.fa-fw
+          Edit
+    %i.fa.fa-archive.fa-fw
+    = current_item.name
+%div{style: "padding: 1em; background: white"}
+  %h4.subheader Published
+  .item_value
+    - if !current_item.published_at
+      %i.fa.fa-circle-o.fa-fw
+      Not published
+    - else
+      - if current_item.published?
+        %i.fa.fa-check-circle-o.fa-fw
+      - else
+        %i.fa.fa-clock-o.fa-fw
+      = current_item.published_at
+  - current_resource.meta_fields.each do |meta_field|
+    %h4.subheader= meta_field.name
+    .item_value
+      - value = current_item.value_for meta_field
+      - if value == nil
+        %p= "-"
+      - elsif meta_field.kind_of?(Sierra::Resource::MetaRelation)
+        - ids = meta_field.many ? value : [value]
+        - _resource = current_site.resource_name meta_field.resource_slug_id
+        %ul
+          - ids.each do |id|
+            - item = current_site.slug_scope(Sierra::Resource::Item).where(_id: id).first
+            - next unless item
+            %li
+              = link_to admin_resource_item_url(_resource, item) do
+                = item.name
+      - elsif meta_field.asset?
+        = image_tag value.content.url
+      - else
+        %p= raw value.value

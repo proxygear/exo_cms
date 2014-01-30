@@ -1,0 +1,40 @@
+%header#header.top-bar{'data-topbar' => ''}
+  %ul.title-area
+    %li.name.show-for-medium-up
+      %h1
+        = link_to admin_root_url do
+          %i.fa.fa-home.fa-fw
+          = current_site.slug_id.capitalize
+    %li.name.hide-for-medium-up
+      %h1
+        %a.toggle-sidenav{href: '#'}
+          %i.fa.fa-bars.fa-fw.disabled
+          Menu
+  %section.top-bar-section
+    %ul.left
+      - if current_contributor.sites.count > 1
+        %li.has-dropdown
+          %a{href: '#'}
+            %i.fa.fa-globe
+            Sites
+          %ul.dropdown
+            - current_contributor.sites.each do |site|
+              %li{class: site == current_site ? 'active' : ''}
+                = link_to "#{site.url}/admin" do
+                  %i.fa.fa-share.fa-fw
+                  = site.name
+    %ul.right
+      %li.has-dropdown
+        %a{href: '#'}
+          = image_tag current_contributor.avatar_url, class: :avatar, style: 'height: 18px'
+          = current_contributor.name
+        %ul.dropdown
+          %li
+            = link_to admin_contributor_url(current_contributor) do
+              %i.fa.fa-user.fa-fw
+              Profile
+          %li
+            = link_to destroy_contributor_session_url, 'data-method' => 'delete' do
+              %i.fa.fa-sign-out.fa-fw
+              Logout
+          

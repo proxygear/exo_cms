@@ -1,0 +1,15 @@
+.title
+  %h1
+    .right
+      %small
+        = link_to new_admin_asset_url do
+          %i.fa.fa-plus.fa-fw
+          Add
+    %i.fa.fa-picture-o.fa-fw
+    Assets
+.full_blocks
+  %ul.large-block-grid-6.small-block-grid-2.medium-block-grid-3
+    - assets.each do |a|
+      %li
+        = link_to admin_asset_url(a) do
+          = image_tag a.content.thumb.url

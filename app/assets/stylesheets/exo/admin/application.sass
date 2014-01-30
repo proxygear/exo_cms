@@ -1,0 +1,68 @@
+//= require_self
+
+$dark-color: #303239
+
+@import 'font-awesome'
+@import 'foundation_and_overrides'
+@import 'responsive-tables'
+
+$side_width: 225px
+$nav_padding: 1em
+
+@import 'components/colorize'
+@import 'components/header'
+@import 'components/sidebar'
+@import 'components/content'
+@import 'components/tables'
+@import 'components/wrapper'
+
+$dark-color: #2b2e35
+
+body.devise
+  background: $dark-color image-url('sierra_front/intro_bg.jpg') top repeat-x
+  #content
+    padding-top: 1em
+p
+  font-weight: 200
+h1, h2, h3, h4, h5, h6
+  font-weight: 200
+h3, h4, h5, h6
+  letter-spacing: 1px
+.clear
+  clear: both
+
+.item_value
+  border: 1px solid $secondary-color
+  background: $body-bg
+  padding: 0.5em 1em
+  margin-bottom: 1em
+  max-height: 300px
+  overflow: auto
+
+$editor_header_hieght: 45px
+#editor_header
+  background: $dark-color
+  height: $editor_header_hieght
+  .top-bar-section .has-form
+    height: $editor_header_hieght
+    background: $dark-color
+.epiceditor
+  //font-color: $input-font-color
+  //border: $input-border-width $input-border-style $input-border-color
+  @include form-element()
+  height: 200px
+#preview
+  position: fixed
+  border-top: 1px solid #222
+  top: $editor_header_hieght + 1px
+  bottom: 0px
+  left: 0px
+  right: 0px
+
+form .panel
+  border: none
+  padding-right: 0
+  padding-left: 0
+  border-bottom: 1px solid $secondary-color
+  border-top: 1px solid $secondary-color
+  background: transparent

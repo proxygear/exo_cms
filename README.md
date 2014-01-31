@@ -36,7 +36,7 @@ Following it you will be able to creating a little blog:
 
 ###Installation
  
-EXO run over Rails >= 4.0.0 and Mongodb.
+EXO run over Rails >= 4.0.0 and Mongodb >= 4.0.0 ((quick install guide)[https://github.com/proxygear/exo_cms/blob/master/docs/quick_mongoid_4_install.md]).
 
     # Install Exo ruby gem
     $ gem install exo_cms

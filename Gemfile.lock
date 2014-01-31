@@ -21,9 +21,7 @@ PATH
   specs:
     exo_cms (0.0.1)
       albino (~> 1.3)
-      bson_ext (~> 1.5)
       carrierwave (~> 0.9)
-      carrierwave-mongoid (~> 0.6)
       coffee-rails (~> 4.0)
       decent_exposure (~> 2.0)
       devise (>= 3.0.0.rc, < 4.0.0)
@@ -43,7 +41,6 @@ PATH
       rmagick (~> 2.13)
       sass-rails (~> 4.0)
       simple_form (~> 3.0)
-      turbolinks
       uglifier (~> 2.4)
 
 GEM
@@ -73,21 +70,13 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    addressable (2.3.5)
     albino (1.3.3)
       posix-spawn (>= 0.3.6)
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     bson (2.2.0)
-    bson_ext (1.5.1)
     builder (3.1.4)
-    capybara (2.2.1)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -96,11 +85,6 @@ GEM
       carrierwave (>= 0.8.0, < 0.10.0)
       mongoid (>= 3.0, < 5.0)
       mongoid-grid_fs (~> 1.3)
-    celluloid (0.15.2)
-      timers (~> 1.1.0)
-    childprocess (0.4.0)
-      ffi (~> 1.0, >= 1.0.11)
-    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -109,40 +93,16 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     colorize (0.6.0)
-    columnize (0.3.6)
     connection_pool (1.2.0)
-    database_cleaner (1.2.0)
-    debugger (1.6.5)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.1)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.1)
     decent_exposure (2.3.1)
     devise (3.0.0.rc)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.1)
-    diff-lcs (1.2.5)
-    dotenv (0.9.0)
-    email_spec (1.5.0)
-      launchy (~> 2.1)
-      mail (~> 2.2)
     erubis (2.7.0)
     excon (0.31.0)
     execjs (2.0.2)
-    factory_girl (4.3.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.3.0)
-      factory_girl (~> 4.3.0)
-      railties (>= 3.0.0)
-    factory_girl_rspec (2.1.0)
-      factory_girl (>= 2.0)
-      rspec (>= 2.0)
-    faker (1.2.0)
-      i18n (~> 0.5)
-    ffi (1.9.3)
     fog (1.19.0)
       builder
       excon (~> 0.31.0)
@@ -159,29 +119,9 @@ GEM
     foundation-rails (5.0.3.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    genspec (0.2.8)
-      rspec (~> 2)
-      sc-core-ext (~> 1.2.1)
-      thor
     gravatar-ultimate (2.0.0)
       activesupport (>= 2.3.14)
       rack
-    guard (2.3.0)
-      formatador (>= 0.2.4)
-      listen (~> 2.1)
-      lumberjack (~> 1.0)
-      pry (>= 0.9.12)
-      thor (>= 0.18.1)
-    guard-bundler (2.0.0)
-      bundler (~> 1.0)
-      guard (~> 2.2)
-    guard-rspec (4.2.5)
-      guard (~> 2.1)
-      rspec (>= 2.14, < 4.0)
-    guard-spork (1.5.1)
-      childprocess (>= 0.2.3)
-      guard (>= 1.1)
-      spork (>= 0.8.4)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -191,31 +131,17 @@ GEM
       railties (>= 4.0.1)
     hike (1.2.3)
     i18n (0.6.9)
-    its (0.1.0)
-      rspec-core (~> 2.8)
     jquery-migrate-rails (1.2.1)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
-    launchy (2.4.2)
-      addressable (~> 2.3)
-    listen (2.4.0)
-      celluloid (>= 0.15.2)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-    lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    mongoid-rspec (1.10.0)
-      mongoid (>= 3.0.1)
-      rake
-      rspec (>= 2.14)
     moped (2.0.0.beta5)
       bson (~> 2.1)
       connection_pool (~> 1.2)
@@ -232,10 +158,6 @@ GEM
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     posix-spawn (0.3.8)
-    pry (0.9.12.6)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
-      slop (~> 3.4)
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
@@ -256,52 +178,22 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.1)
-    rb-fsevent (0.9.4)
-    rb-inotify (0.9.3)
-      ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
     redcarpet (3.0.0)
     rmagick (2.13.2)
-    rspec (2.14.1)
-      rspec-core (~> 2.14.0)
-      rspec-expectations (~> 2.14.0)
-      rspec-mocks (~> 2.14.0)
-    rspec-core (2.14.7)
-    rspec-expectations (2.14.4)
-      diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.14.4)
-    rspec-rails (2.14.1)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 2.14.0)
-      rspec-expectations (~> 2.14.0)
-      rspec-mocks (~> 2.14.0)
     ruby-hmac (0.4.0)
-    ruby-prof (0.14.2)
     sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    sc-core-ext (1.2.1)
-      activesupport (>= 2.3.5)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    shoulda (3.5.0)
-      shoulda-context (~> 1.0, >= 1.0.1)
-      shoulda-matchers (>= 1.4.1, < 3.0)
-    shoulda-context (1.1.6)
-    shoulda-matchers (2.5.0)
-      activesupport (>= 3.0.0)
     simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
-    slop (3.4.7)
-    spork (0.9.2)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -315,62 +207,35 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
-    timers (1.1.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.1)
-      coffee-rails
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    xpath (2.0.0)
-      nokogiri (~> 1.3)
     yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara
   carrierwave-mongoid (>= 0.6.0)
   coffee-rails (>= 4.0.0)
   colorize
-  database_cleaner
-  debugger
   decent_exposure
   devise (= 3.0.0.rc)
-  dotenv
-  email_spec
   exo_cms!
-  factory_girl
-  factory_girl_rails
-  factory_girl_rspec
-  faker
   font-awesome-rails
   foundation-rails (> 5.0.0)
-  genspec
   gravatar-ultimate
-  guard-bundler
-  guard-rspec
-  guard-spork
   haml-rails
-  its
   jquery-migrate-rails
   jquery-rails
   mongoid!
   mongoid-grid_fs (>= 1.9.0)!
-  mongoid-rspec
-  rb-fsevent
-  rspec-mocks
-  rspec-rails
-  ruby-prof
   sass-rails (>= 4.0.0)
   sdoc
-  shoulda
-  shoulda-matchers
-  spork
   uglifier (>= 1.3.0)

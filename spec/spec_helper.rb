@@ -5,7 +5,8 @@ puts "spec helper".colorize(:green)
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../dummy/config/environment", __FILE__)
-spec_root = File.expand_path('..', __FILE__)
+SPEC_ROOT = spec_root = File.expand_path('..', __FILE__)
+SPEC_TEMPLATES_PATH = File.join spec_root, 'templates'
 
 require 'rspec/rails'
 require 'capybara/dsl'
@@ -14,6 +15,7 @@ require 'mongoid-rspec'
 require 'shoulda-matchers'
 require 'factory_girl_rspec'
 require 'email_spec'
+require 'genspec'
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 

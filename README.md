@@ -38,14 +38,14 @@ Following it you will be able to creating a little blog:
  
 EXO run over Rails >= 4.0.0 and Mongodb >= 4.0.0 ((quick install guide)[https://github.com/proxygear/exo_cms/blob/master/docs/quick_mongoid_4_install.md]).
 
-    # Create a new rails app, let’s call it: my_app 
-    $ rails new my_app
+    # Create a new rails app without active record, let’s call it: my_blog
+    $ rails new my_blog --skip-active-record
     
     # Add exo_cms to your Gemfile
     $ gem 'exo_cms'
     
     # Go in the app folder and bundle
-    $ cd my_app && bundle
+    $ cd my_blog && bundle
     
     # Let’s install the exo engine into your fresh app 
     $ rails generate exo:engine:install 

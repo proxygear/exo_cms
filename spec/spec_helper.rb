@@ -14,7 +14,6 @@ require 'database_cleaner'
 require 'mongoid-rspec'
 require 'shoulda-matchers'
 require 'factory_girl_rspec'
-require 'email_spec'
 require 'genspec'
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')

@@ -34,9 +34,12 @@ gem 'devise', '3.0.0.rc'
 gem 'gravatar-ultimate'
 gem 'haml-rails'
 gem 'decent_exposure'
-gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
-gem 'carrierwave-mongoid', '>= 0.6.0', require: 'carrierwave/mongoid'
-gem 'mongoid-grid_fs', '>= 1.9.0', github: 'ahoward/mongoid-grid_fs'
+gem 'mongoid'
+
+group :development, :test do
+  gem 'carrierwave-mongoid', '>= 0.6.0', require: 'carrierwave/mongoid'
+  gem 'mongoid-grid_fs', '>= 1.9.0', github: 'ahoward/mongoid-grid_fs'
+end
 
 group :test do
   gem 'its'

@@ -13,6 +13,7 @@ PATH
       albino (~> 1.3)
       carrierwave (~> 0.9)
       coffee-rails (~> 4.0)
+      colorize
       decent_exposure (~> 2.0)
       devise (>= 3.0.0.rc, < 4.0.0)
       fog (~> 1.19)
@@ -285,7 +286,7 @@ DEPENDENCIES
   database_cleaner
   debugger
   decent_exposure
-  devise (= 3.0.0.rc)
+  devise
   exo_cms!
   factory_girl
   factory_girl_rails

@@ -2,7 +2,6 @@ require 'mongoid'
 require 'devise'
 require "exo/engine"
 require 'exo/regexp'
-require 'exo/railtie' if defined?(Rails)
 
 class Exo
   include Singleton

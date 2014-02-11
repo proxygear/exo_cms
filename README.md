@@ -36,7 +36,7 @@ Following it you will be able to creating a little blog:
 
 ###Installation
  
-EXO run over Rails >= 4.0.0 and Mongodb >= 4.0.0 ((quick install guide)[https://github.com/proxygear/exo_cms/blob/master/docs/quick_mongoid_4_install.md]).
+EXO run over Rails >= 4.0.0 and Mongodb >= 4.0.0 ([quick install guide](https://github.com/proxygear/exo_cms/blob/master/docs/quick_mongoid_4_install.md)).
 
     # Create a new rails app without active record, let’s call it: my_blog
     $ rails new my_blog --skip-active-record
@@ -185,9 +185,9 @@ Then the extra fields.
 
 See `views/my_blog/home.html` for a detailed usage exemple.
 
-##Keep diging (Advanced doc)
+##Keep digging (Advanced doc)
 
-### Multi site
+### Multi sites
 
 Exo can run multiple sites at a time.
 Just create add config yml file and setup different domains.

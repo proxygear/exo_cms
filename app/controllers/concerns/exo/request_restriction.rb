@@ -1,11 +1,11 @@
 class Exo
-  module RouteFilter
+  module RequestRestriction
     extend ActiveSupport::Concern
 
     included do
-      before_filter :exo_path_routing!
+      before_filter :exo_request_routing!
 
-      expose(:exo_route) { exo_routing.route }
+      expose(:exo_route) { exo_router.route }
 
       rescue_from Exo::Route::UnknowPathError do |e|
         render e, status: 404
@@ -13,8 +13,8 @@ class Exo
     end
 
     protected
-    def exo_path_routing!
-      exo_routing.for_request! request
+    def exo_request_routing!
+      exo_router.for_request! request
     end
   end
 end

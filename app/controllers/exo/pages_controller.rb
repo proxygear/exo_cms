@@ -1,14 +1,14 @@
 class Exo
   class PagesController < ExoController
     before_filter :fix_lookup_context
-    include RouteFilter
+    include RequestRestriction
     helper Exo::BlockHelper
 
     def serve_page
-      if exo_routing.route.redirection?
-        redirect_to exo_routing.route.to_url
+      if exo_router.route.redirection?
+        redirect_to exo_router.route.to_url
       else
-        render exo_routing.route.view_path, layout: exo_routing.route.layout_path
+        render exo_router.route.view_path, layout: exo_router.route.layout_path
       end
     end
 

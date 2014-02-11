@@ -1,9 +1,9 @@
 module Exo::Admin
-  module SiteSlugIdFilter
+  module SiteRestriction
     extend ActiveSupport::Concern
 
     included do
-      include ::Exo::HostFilter
+      include ::Exo::HostRestriction
       extend ClassMethods
       
       before_filter do

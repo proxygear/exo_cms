@@ -131,16 +131,17 @@ Replace all the files in your app.
 
 CSS and JS are here only to proide some prettyness, so let's focus on the views.
 
-####Tick object
+####Exposed objects
 
 Open `layouts/my_blog/application.html.haml`.
 You'll see in the head the following line: `= stylesheet_link_tag    exo_site.nest_path(:application), media: "all", "data-turbolinks-track" => true`
 
-The tick object is your gateway in view to exo stuff.
-You can acess site object, but also later on models and more.
+`exo_site` is a decorated site object that allow you to access resources, settings and more ...
 
-As you can see the site has a `nest_path` method.
+As you can see it has a `nest_path` method.
 It will change `/assets/application.css` into `/assets/my_blog/application.css`
+
+You may also access to the current route object : `exo_route`.
 
 ####BlockHelper
 

@@ -28,12 +28,12 @@
       - value = current_item.value_for meta_field
       - if value == nil
         %p= "-"
-      - elsif meta_field.kind_of?(Sierra::Resource::MetaRelation)
+      - elsif meta_field.kind_of?(Exo::Resource::MetaRelation)
         - ids = meta_field.many ? value : [value]
-        - _resource = current_site.resource_name meta_field.resource_slug_id
+        - _resource = exo_site.resource_name meta_field.resource_slug_id
         %ul
           - ids.each do |id|
-            - item = current_site.slug_scope(Sierra::Resource::Item).where(_id: id).first
+            - item = exo_site.slug_scope(Exo::Resource::Item).where(_id: id).first
             - next unless item
             %li
               = link_to admin_resource_item_url(_resource, item) do

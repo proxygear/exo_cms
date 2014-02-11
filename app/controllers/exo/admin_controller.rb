@@ -1,8 +1,8 @@
-module Exo::Admin
-  class ApplicationController < ::Exo::ApplicationController
+class Exo
+  class AdminController < ExoController
     layout 'exo/admin/application'
+
     before_filter :authenticate_contributor!
-    expose(:current_site) { tick.site.site }
 
     protected
     def allow_params key, fields

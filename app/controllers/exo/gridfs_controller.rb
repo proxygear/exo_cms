@@ -1,13 +1,13 @@
 class Exo
-  class GridfsController < ApplicationController
+  class GridfsController < ExoController
     def item_asset
-      item = tick.site.resource(params[:resource_slug_id]).items.find_by slug_id: params[:item_slug_id]
+      item = exo_site.resource(params[:resource_slug_id]).items.find_by slug_id: params[:item_slug_id]
       asset = item.send params[:field_slug_id].to_sym
       respond_with_asset asset
     end
 
     def asset
-      asset = tick.site.slug_scope(Exo::Asset).find_by _id: params[:id]
+      asset = exo_site.slug_scope(Exo::Asset).find_by _id: params[:id]
       if asset
         respond_with_asset asset
       else

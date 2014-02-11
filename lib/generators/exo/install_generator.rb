@@ -11,9 +11,6 @@ class Exo
 
         template "initializer.rb", "config/initializers/exo.rb"
 
-        #require 'exo' application.rb
-        
-        #Bundler.require(:default, Rails.env) application.rb require 'exo'
         File.open(File.join(self.class.source_root, 'engine_routes.rb'), 'r') do |f|
           route f.read
         end

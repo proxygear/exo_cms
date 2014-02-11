@@ -3,7 +3,7 @@
   Sitemap
 %table.responsive.full
   %tbody
-    - current_site.routes.asc(:path).each do |route|
+    - exo_site.routes.asc(:path).each do |route|
       %tr
         - if route.redirection?
           %td

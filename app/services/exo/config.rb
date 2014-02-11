@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Exo
   class Config
     attr_accessor :config_slug, :options

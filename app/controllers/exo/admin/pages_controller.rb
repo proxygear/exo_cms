@@ -1,10 +1,10 @@
 module Exo::Admin
-  class PagesController < ::Exo::Admin::ApplicationController
+  class PagesController < Exo::AdminController
     REMOVAL_REGEXP = /\Ahttps?:\/\/([a-z0-9.-:]+)\//i
     expose(:mercury_path) do
       File.join '/', params[:url].gsub(REMOVAL_REGEXP, '')
     end
-    expose(:current_page) { current_site.routes.find_by path: mercury_path }
+    expose(:current_page) { exo_site.routes.find_by path: mercury_path }
 
     def mercury_update
       params[:content].each do |slug, mercure|

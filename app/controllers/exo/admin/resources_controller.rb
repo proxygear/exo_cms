@@ -1,5 +1,5 @@
 module Exo::Admin
-  class ResourcesController < Exo::Admin::ApplicationController
-    expose(:current_resource) { current_site.resources.find params[:id] }
+  class ResourcesController < Exo::AdminController
+    expose(:current_resource) { exo_site.resources.find params[:id] }
   end
 end

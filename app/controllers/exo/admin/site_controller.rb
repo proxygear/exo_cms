@@ -1,4 +1,4 @@
 module Exo::Admin
-  class SiteController < Exo::Admin::ApplicationController
+  class SiteController < Exo::AdminController
   end
 end

@@ -1,6 +1,6 @@
 .title
   %h1
-    - if current_route.kind_of?(Sierra::Route::Page)
+    - if current_route.kind_of?(Exo::Route::Page)
       .right
         %small
           = link_to edit_admin_route_url(current_route) do

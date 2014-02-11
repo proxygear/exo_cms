@@ -17,11 +17,16 @@ require 'factory_girl_rspec'
 require 'genspec'
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
+TEST_THEME = 'an_exo_theme'
+
+require 'exo'
 
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 
 Mongoid.logger.level = Logger::WARN
 Capybara.default_selector = :css
+
+
 
 RSpec.configure do |config|
   config.include RSpec::Rails::RequestExampleGroup, :example_group => {

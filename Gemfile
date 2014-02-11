@@ -35,10 +35,12 @@ gem 'gravatar-ultimate'
 gem 'haml-rails'
 gem 'decent_exposure'
 gem 'mongoid'
+gem 'draper'
 
 group :development, :test do
   gem 'carrierwave-mongoid', '>= 0.6.0', require: 'carrierwave/mongoid'
   gem 'mongoid-grid_fs', '>= 1.9.0', github: 'ahoward/mongoid-grid_fs'
+  gem 'debugger'
 end
 
 group :test do
@@ -54,6 +56,5 @@ group :test do
   gem 'database_cleaner'
   gem 'mongoid-rspec'
   gem 'rspec-mocks'
-  gem 'debugger'
   gem 'genspec'
 end

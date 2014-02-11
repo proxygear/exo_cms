@@ -1,3 +1,14 @@
+=begin
+   ------
+  /\/  \/\
+ / /\  /\ \
+/ /_ \/  \ \
+\ \  /\  / / 
+ \ \/  \/ /
+  \/\  /\/
+  -------- CMS
+=end
+
 require 'mongoid'
 require 'devise'
 require "exo/engine"
@@ -13,21 +24,18 @@ class Exo
   attr_accessor :services
 
   def initialize
-    self.services = {}
+    self.services = []
   end
 
   def register_services hash
-    self.services = hash
+    hash.each do |name, path|
+      self.services = AppService.new name, path
+    end
   end
 end
 
 # Exo.config do |s|
 #   s.generic_services(
 #     'Messages' => '/somepath'
-#   )
-# 
-#   s.register_models(
-#     SomeNamespace::AModel,
-#     SomeNamespace::AnotherModel
 #   )
 # end

@@ -23,6 +23,7 @@ Exo::Engine.routes.draw do
 
   namespace :admin, module: 'admin' do
     root 'site#show', route_path: '/'
+
     # put '/pages/blocks', to: 'ckeditor_blocks#update'
     #devise_for :contributors, class_name: "Exo::Contributor", module: :devise, :path => '/'
 

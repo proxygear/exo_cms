@@ -2,10 +2,10 @@
 %html
   %head
     %title Admin CMS
-    = stylesheet_link_tag    'admin/application', media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    'exo/admin/application', media: "all", "data-turbolinks-track" => true
     = yield :head
     = csrf_meta_tags
   %body{style: 'background: #333'}
-    = javascript_include_tag 'admin/application', "data-turbolinks-track" => true
+    = javascript_include_tag 'exo/admin/application', "data-turbolinks-track" => true
     = render partial: 'editor_header'
     = yield

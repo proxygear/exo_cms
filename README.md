@@ -48,11 +48,14 @@ EXO run over Rails >= 4.0.0 and Mongodb >= 4.0.0 ((quick install guide)[https://
     $ cd my_blog && bundle
     
     # Let’s install the exo engine into your fresh app 
-    $ rails generate exo:engine:install 
+    $ rails 
+    $ rails generate devise:install
+    $ rails generate mongoid:config
+    $ rails generate exo:engine:install
 
 The generator did:
 
-* added couple additional gems
+* added couple additional gems (for development purpose)
 * required the exo_cms from your application
 * generated an initializer
 * add a route
@@ -60,7 +63,7 @@ The generator did:
 ###Site creation
 
     # Add an admin localy to be able to manage the content 
-    $ rake exo:contributors:generate[your_email@something.com,a_password] 
+    $ rake exo:contributors:new[your_email@something.com,a_password] 
 
     # Let’s generate a site config file
     $ rake exo:generate[my_blog] 
@@ -93,7 +96,7 @@ Let's modify this file as following:
     - your_email@something.com
     resources:
       post:
-        short_intro
+        short_intro:
            type: text
            required: true
         text:
@@ -131,7 +134,7 @@ CSS and JS are here only to proide some prettyness, so let's focus on the views.
 ####Tick object
 
 Open `layouts/my_blog/application.html.haml`.
-You'll see in the head the following line: `= stylesheet_link_tag    tick.site.nest_path(:application), media: "all", "data-turbolinks-track" => true`
+You'll see in the head the following line: `= stylesheet_link_tag    exo_site.nest_path(:application), media: "all", "data-turbolinks-track" => true`
 
 The tick object is your gateway in view to exo stuff.
 You can acess site object, but also later on models and more.
@@ -173,7 +176,7 @@ So you remember in the config file `my_blog.yml` the resources:
 Exo::Resource emulate a more or less a model, except their definition is store in the BD.
 When you did run the seed task, it registered the post resource.
 
-You can access the resource obect this way: `resource = tick.site.resource(:post)` where :post is the resource identifier.
+You can access the resource obect this way: `resource = exo_site.resource(:post)` where :post is the resource identifier.
 Then if you wan to get a mongoid scope on the items of the resource: `resource.items`.
 
 Resource items always have a name and a publication date (name and plublished_at).
@@ -239,7 +242,7 @@ See also carrier wave documentation.
 
 ##Dependencies
 
-Main stuff used by EXO CMS, check the [gemspec](https://github.com/proxygear/exo_cms/blob/master/exo.gemspec) for more details:
+Main stuff used by EXO CMS, check the [gemspec](https://github.com/proxygear/exo_cms/blob/master/exod.gemspec) for more details:
 
 * Zurb Foundation 5
 * Font Awesome

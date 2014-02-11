@@ -23,7 +23,7 @@ describe 'exo:install' do
   it 'generates exo initializer' do
     subject.should generate('config/initializers/exo.rb')
   end
-  
+
   it 'append engine mounting on "/" to config/routes.rb' do
     engine_route_path = File.join generators_path, 'templates', 'engine_routes.rb'
 

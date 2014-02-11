@@ -7,7 +7,7 @@ module Exo::Admin
       extend ClassMethods
       
       before_filter do
-        redirect_to exo.admin_root_url unless allowed_sites.include? tick.site.slug_id
+        redirect_to exo.admin_root_url unless allowed_sites.include? exo_site.slug_id
       end
     end
 

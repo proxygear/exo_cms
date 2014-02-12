@@ -8,7 +8,7 @@
       %td Name
       %td Email
   %tbody
-    - current_site.contributors.asc(:email).each do |c|
+    - exo_site.contributors.asc(:email).each do |c|
       %tr
         %td
           = link_to admin_contributor_url(c) do

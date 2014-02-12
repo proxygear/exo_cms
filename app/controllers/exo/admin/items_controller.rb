@@ -1,8 +1,8 @@
 module Exo::Admin
-  class ItemsController < Exo::Admin::ApplicationController
+  class ItemsController < Exo::AdminController
     MODEL = Exo::Resource::Item
 
-    expose(:current_resource) { tick.site.site.resources.find params[:resource_id] }
+    expose(:current_resource) { exo_site.site.resources.find params[:resource_id] }
     expose(:current_item) do
       if [:new, :create].include? params[:action].to_sym
         MODEL.new item_params
@@ -12,7 +12,7 @@ module Exo::Admin
     end
 
     def create
-      current_item.site = current_site
+      current_item.site = exo_site
       current_item.resource = current_resource
 
       update

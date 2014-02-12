@@ -1,5 +1,5 @@
 module Exo::Admin
-  class CkeditorAssetsController < ApplicationController
+  class CkeditorAssetsController < Exo::AdminController
     skip_before_filter :verify_authenticity_token
     before_filter :expose_ckeditor_stuff
 
@@ -10,7 +10,7 @@ module Exo::Admin
     expose(:ckeditor_function_num) { params[:CKEditorFuncNum] }
     expose(:asset) do
       MODEL.new.tap do |a|
-        a.site = current_site
+        a.site = exo_site
         a.content = params[:upload]
       end
     end

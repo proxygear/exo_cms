@@ -4,7 +4,7 @@ module Exo::BlockHelper
     options['contenteditable'] = "true" if params[:preview]
     options[:id] = id
     options[:class] = "#{options[:class]} _block"
-    block = tick.route.block id
+    block = exo_route.block_name(id)
 
     if block
       content_tag 'div', options do

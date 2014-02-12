@@ -13,13 +13,17 @@ describe 'exo:install' do
   end
 
   it 'add exo_cms to Gemfile' do
-    subject.should append_file('Gemfile', "\ngem 'exo_cms'")
+    gems_path = File.join generators_path, 'templates', 'gems.rb'
+    
+    File.open(gems_path, 'r') do |f|
+      subject.should append_file('Gemfile', f.read.to_s)
+    end
   end
 
   it 'generates exo initializer' do
     subject.should generate('config/initializers/exo.rb')
   end
-  
+
   it 'append engine mounting on "/" to config/routes.rb' do
     engine_route_path = File.join generators_path, 'templates', 'engine_routes.rb'
 

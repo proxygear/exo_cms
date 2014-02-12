@@ -1,9 +1,9 @@
 module Exo::Admin
-  class CkeditorBlocksController < ApplicationController
+  class CkeditorBlocksController < Exo::AdminController
     expose(:targeted_page) do
       _route = nil
-      Exo::PathMatcher.route_for(current_site.routes, params) do |route|
-        _route = Exo::RoutePresenter.new route
+      Exo::PathMatcher.route_for(exo_site.routes, params) do |route|
+        _route = Exo::RouteDecorator.new route
       end
       _route
     end

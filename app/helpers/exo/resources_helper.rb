@@ -46,7 +46,7 @@ module Exo::ResourcesHelper
           hash[:value] = value.form_value
         end
       when Exo::Resource::MetaRelation
-        _resource = current_site.resource_name field.resource_slug_id
+        _resource = exo_site.resource_name field.resource_slug_id
         options[:selected] = item.value_for(field).form_value
         options[:include_blank] = false
         options[:collection] = _resource.items.asc(:name).collect {|i| [i.name, i.id.to_s]}

@@ -2,25 +2,31 @@
   %li.hide-for-medium-up
     = link_to admin_root_url do
       %i.fa.fa-home
-      = current_site.slug_id.capitalize
-  %li
-    %h4 Resources
-  - current_site.resources.asc(:name).each do |resource|
+      = exo_site.slug_id.capitalize
+  - if exo_site.services #.exists?
     %li
-      .right
-        -#.label.secondary.radius= resource.items.count
-        -#= link_to new_admin_resource_item_url(resource) do
-        -#  %i.fa.fa-plus-square.fa-fw
-      = link_to admin_resource_url(resource) do
-        %i.fa.fa-archive.fa-fw
-        = resource.name
-  %li
-    %h4 Routes
-  - current_site.routes.asc(:path).each do |route|
+      %h4 Services
+    - exo_site.services.each do |s|
+      %li
+        = link_to s.path do
+          %i.fa.fa-star.fa-fw
+          = resource.name
+  - if exo_site.resources.exists?
     %li
-      = link_to admin_route_url(route) do
-        %i.fa.fa-road.fa-fw
-        = route.path
+      %h4 Resources
+    - exo_site.resources.asc(:name).each do |resource|
+      %li
+        = link_to admin_resource_url(resource) do
+          %i.fa.fa-archive.fa-fw
+          = resource.name
+  - if exo_site.routes.exists?
+    %li
+      %h4 Routes
+    - exo_site.routes.asc(:path).each do |route|
+      %li
+        = link_to admin_route_url(route) do
+          %i.fa.fa-road.fa-fw
+          = route.path
   %li
     %h4 Site
   %li

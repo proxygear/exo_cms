@@ -1,6 +1,6 @@
 describe 'Admin route details' do
   let(:site) { create :site }
-  logged_colaborator! do |c|
+  logged_contributor! do |c|
     c.sites = [site]
     c.save
   end

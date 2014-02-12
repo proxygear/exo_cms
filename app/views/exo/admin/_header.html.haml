@@ -4,7 +4,7 @@
       %h1
         = link_to admin_root_url do
           %i.fa.fa-home.fa-fw
-          = current_site.slug_id.capitalize
+          = exo_site.slug_id.capitalize
     %li.name.hide-for-medium-up
       %h1
         %a.toggle-sidenav{href: '#'}
@@ -19,7 +19,7 @@
             Sites
           %ul.dropdown
             - current_contributor.sites.each do |site|
-              %li{class: site == current_site ? 'active' : ''}
+              %li{class: site == exo_site ? 'active' : ''}
                 = link_to "#{site.url}/admin" do
                   %i.fa.fa-share.fa-fw
                   = site.name

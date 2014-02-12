@@ -1,5 +1,5 @@
 module Exo::Admin
-  class CustomsController < ApplicationController
+  class CustomsController < AdminController
     def index
       
     end

@@ -1,5 +1,5 @@
 describe 'Front route page' do
-  let(:site) { create :site, theme_path: 'a_exo_theme' }
+  let(:site) { create :site, theme_path: TEST_THEME }
 
   let(:route_page) do
     build(:route_page, view_path: '/a_page').tap do |p|

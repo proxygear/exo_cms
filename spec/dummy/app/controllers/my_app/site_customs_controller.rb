@@ -1,6 +1,6 @@
 module MyApp
   class SiteCustomsController < ApplicationController
-    include ::Exo::Admin::SiteSlugIdFilter
+    include ::Exo::Admin::SiteRestriction
 
     protected
     def allowed_sites

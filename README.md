@@ -36,24 +36,34 @@ Following it you will be able to creating a little blog:
 
 ###Installation
  
-EXO run over Rails >= 4.0.0 and Mongodb >= 4.0.0 ((quick install guide)[https://github.com/proxygear/exo_cms/blob/master/docs/quick_mongoid_4_install.md]).
+EXO run over Rails >= 4.0.0 and Mongodb >= 4.0.0 ([quick install guide](https://github.com/proxygear/exo_cms/blob/master/docs/quick_mongoid_4_install.md)).
 
-    # Install Exo ruby gem
-    $ gem install exo_cms
+    # Create a new rails app without active record, let’s call it: my_blog
+    $ rails new my_blog --skip-active-record
     
-    # Create a new rails app, let’s call it: my_app 
-    $ rails new my_app 
+    # Add exo_cms to your Gemfile
+    $ gem 'exo_cms'
     
-    # Go in the app folder: my_app, except you ticked another name 
-    $ cd my_app
+    # Go in the app folder and bundle
+    $ cd my_blog && bundle
     
     # Let’s install the exo engine into your fresh app 
-    $ rails generate exo:engine:install 
+    $ rails 
+    $ rails generate devise:install
+    $ rails generate mongoid:config
+    $ rails generate exo:engine:install
+
+The generator did:
+
+* added couple additional gems (for development purpose)
+* required the exo_cms from your application
+* generated an initializer
+* add a route
 
 ###Site creation
 
     # Add an admin localy to be able to manage the content 
-    $ rake exo:contributors:generate[your_email@something.com,a_password] 
+    $ rake exo:contributors:new[your_email@something.com,a_password] 
 
     # Let’s generate a site config file
     $ rake exo:generate[my_blog] 
@@ -86,7 +96,7 @@ Let's modify this file as following:
     - your_email@something.com
     resources:
       post:
-        short_intro
+        short_intro:
            type: text
            required: true
         text:
@@ -121,16 +131,17 @@ Replace all the files in your app.
 
 CSS and JS are here only to proide some prettyness, so let's focus on the views.
 
-####Tick object
+####Exposed objects
 
 Open `layouts/my_blog/application.html.haml`.
-You'll see in the head the following line: `= stylesheet_link_tag    tick.site.nest_path(:application), media: "all", "data-turbolinks-track" => true`
+You'll see in the head the following line: `= stylesheet_link_tag    exo_site.nest_path(:application), media: "all", "data-turbolinks-track" => true`
 
-The tick object is your gateway in view to exo stuff.
-You can acess site object, but also later on models and more.
+`exo_site` is a decorated site object that allow you to access resources, settings and more ...
 
-As you can see the site has a `nest_path` method.
+As you can see it has a `nest_path` method.
 It will change `/assets/application.css` into `/assets/my_blog/application.css`
+
+You may also access to the current route object : `exo_route`.
 
 ####BlockHelper
 
@@ -166,7 +177,7 @@ So you remember in the config file `my_blog.yml` the resources:
 Exo::Resource emulate a more or less a model, except their definition is store in the BD.
 When you did run the seed task, it registered the post resource.
 
-You can access the resource obect this way: `resource = tick.site.resource(:post)` where :post is the resource identifier.
+You can access the resource obect this way: `resource = exo_site.resource(:post)` where :post is the resource identifier.
 Then if you wan to get a mongoid scope on the items of the resource: `resource.items`.
 
 Resource items always have a name and a publication date (name and plublished_at).
@@ -174,9 +185,9 @@ Then the extra fields.
 
 See `views/my_blog/home.html` for a detailed usage exemple.
 
-##Keep diging (Advanced doc)
+##Keep digging (Advanced doc)
 
-### Multi site
+### Multi sites
 
 Exo can run multiple sites at a time.
 Just create add config yml file and setup different domains.
@@ -232,7 +243,7 @@ See also carrier wave documentation.
 
 ##Dependencies
 
-Main stuff used by EXO CMS, check the [gemspec](https://github.com/proxygear/exo_cms/blob/master/exo.gemspec) for more details:
+Main stuff used by EXO CMS, check the [gemspec](https://github.com/proxygear/exo_cms/blob/master/exod.gemspec) for more details:
 
 * Zurb Foundation 5
 * Font Awesome

@@ -7,7 +7,8 @@ require "action_mailer/railtie"
 require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "exo"
+
+require 'exo' # <- this is require for spec loading models ...
 
 module Dummy
   class Application < Rails::Application

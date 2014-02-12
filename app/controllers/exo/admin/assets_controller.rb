@@ -1,17 +1,17 @@
 module Exo::Admin
-  class AssetsController < ApplicationController
+  class AssetsController < Exo::AdminController
     MODEL = Exo::Asset
-    expose(:assets) { current_site.slug_scope(MODEL).asc(:created_at) }
+    expose(:assets) { exo_site.slug_scope(MODEL).asc(:created_at) }
     expose(:current_asset) do
       if [:new, :create].include? params[:action].to_sym
         MODEL.new asset_params
       else
-        current_site.slug_scope(MODEL).find params[:id]
+        exo_site.slug_scope(MODEL).find params[:id]
       end
     end
 
     def create
-      current_asset.site = current_site
+      current_asset.site = exo_site
       #current_asset.content = params[:upload]
       if current_asset.save
         redirect_to admin_assets_url

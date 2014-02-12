@@ -1,7 +1,7 @@
 module Exo::Admin
-  class RoutesController < Exo::Admin::ApplicationController
+  class RoutesController < Exo::AdminController
     expose(:current_route) do
-      current_site.routes.find params[:id]
+      exo_site.routes.find params[:id]
     end
 
     def edit

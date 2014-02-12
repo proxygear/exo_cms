@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   #DB
   s.add_runtime_dependency 'mongoid', '>= 4.0.0.alpha1', '< 5.0.0'
+  s.add_dependency 'draper', '~> 1.2'
 
   #UI
   s.add_dependency 'foundation-rails', '~> 5.0'
